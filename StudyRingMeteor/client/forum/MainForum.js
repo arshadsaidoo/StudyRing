@@ -1,4 +1,7 @@
 import './MainForum.html';
+import { UserDiscussion } from "../../collections/UserDiscussion.js";
+import { userdiscussion } from "../../collections/UserDiscussion.js";
+
 
 Template.MainForum.onCreated(function(){
     var self = this;
@@ -32,5 +35,5 @@ Template.MainForum.events({
   'click .toggle-menu2': function() {
     console.log('click');
     Meteor.call('deleteComment', this._id);
-  },
+  }
 });

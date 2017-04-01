@@ -113,7 +113,7 @@ Template.RingInfo.helpers({
         else
             return false;
 
-      
+
     },
     isOwner: function(s2){
       return (Meteor.userId()===s2);

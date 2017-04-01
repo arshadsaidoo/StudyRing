@@ -10,16 +10,20 @@ ________________________________________________________________________________
   <body>
       <div class="jumbotron">
         <h1>Welcome To The Forum</h1>
-          {{>ringDiscussion}}
+          {{> RingDiscussion}}
         <br><br>
         <p>Have a question? We are here to help!</p>
       </div>
       <div>
-        {{#each comments}}
-          {{> MyAvatarComment}}
-        {{/each}}
+        {{#if Template.subscriptionsReady}}
+          {{#each comments}}
+            {{> MyAvatarComment}}
+          {{/each}}
+        {{else}}
+          <p> Loading </p>
+        {{/if}}
       </div>
-        {{> quickForm collection="userdiscussion" id="insertComment" type="insert" class="newCommentForm"}}
+        {{> quickForm collection="UserDiscussion" id="insertComment" type="insert" class="newCommentForm"}}
   </body>
 </template>
 <!--
@@ -37,7 +41,7 @@ ________________________________________________________________________________
       <div class="user">
         <div class="col-sm-2">
            {{#with currentUser}}
-               {{> avatar user=this shape="circle" size="large"}}
+               {{> avatar user=createdBy shape="circle" size="large"}}
                {{username}}
            {{/with}}
         </div>
